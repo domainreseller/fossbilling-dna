@@ -1,6 +1,8 @@
 <?php
 /**
  * @copyright DomainNameApi (https://www.domainnameapi.com)
+ * @version 1.0.0
+ * @author    Bünyamin AKÇAY <bunyamin@bunyam.in>
  * @license   GPL-3.0
  *
  * This source file is subject to the GPL-3.0 License that is bundled
