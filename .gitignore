@@ -2,3 +2,4 @@
 /docker-compose.yml
 /library/Registrar/Adapter/DomainNameApi/logs/domainnameapi.log
 .idea
+.DS_Store
