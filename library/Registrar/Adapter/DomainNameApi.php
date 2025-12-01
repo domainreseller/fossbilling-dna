@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright DomainNameApi (https://www.domainnameapi.com)
- * @version 1.0.0
+ * @version 1.0.3
  * @author    Bünyamin AKÇAY <bunyamin@bunyam.in>
  * @license   GPL-3.0
  *
@@ -23,7 +23,7 @@ class Registrar_Adapter_DomainNameApi extends Registrar_AdapterAbstract
         'Password' => null,
     );
 
-    private const MODULE_VERSION = "1.0.0";
+    private const MODULE_VERSION = "1.0.3";
     private const DIR_LOG = "logs";
     private const FILE_LOG = "domainnameapi.log";
 
