@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright DomainNameApi (https://www.domainnameapi.com)
- * @version 1.0.3
+ * @version 1.0.4
  * @author    Bünyamin AKÇAY <bunyamin@bunyam.in>
  * @license   GPL-3.0
  *
