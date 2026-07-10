@@ -12,6 +12,12 @@
 
 Ce module est l'intégration officielle de DomainNameApi pour FOSSBilling. Gérez l'enregistrement, le transfert, le renouvellement et la gestion des domaines directement depuis votre panneau d'administration FOSSBilling.
 
+## 📦 Téléchargement — utilisez toujours les Releases !
+
+⬇️ **Téléchargez la dernière version testée ici : https://github.com/domainreseller/fossbilling-dna/releases/latest**
+
+> ⚠️ N'utilisez **pas** le bouton vert **Code → Download ZIP** — il télécharge la branche de développement brute. Les paquets de release sont versionnés, testés et prêts pour la production.
+
 ## Prérequis
 
 - FOSSBilling 1.0 ou supérieur
@@ -25,6 +31,20 @@ Ce module est l'intégration officielle de DomainNameApi pour FOSSBilling. Gére
 3. Allez dans Paramètres > Modules d'enregistrement de domaine et activez "DomainNameApi".
 4. Saisissez votre nom d'utilisateur et mot de passe API DomainNameApi.
 5. Enregistrez et commencez à utiliser le module.
+
+## 🔑 Identifiants API — Nom d'utilisateur/Mot de passe ou Reseller ID/API Key ?
+
+Les deux sont pris en charge — saisissez-les dans les deux mêmes champs du module ; le module détecte automatiquement quelle API utiliser :
+
+| Vous disposez de | Champ « Nom d'utilisateur » | Champ « Mot de passe » | API utilisée |
+|---|---|---|---|
+| **Nouveaux identifiants du panneau** (recommandé) | Reseller ID — UUID de type `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` | API Key | REST |
+| **Identifiants hérités (legacy)** | Nom d'utilisateur API | Mot de passe API | SOAP |
+
+> 💡 Vous trouverez votre **Reseller ID** et votre **API Key** dans votre panneau DomainNameAPI, section **Paramètres API**.
+> ⚠️ Il s'agit d'**identifiants API** — l'e-mail et le mot de passe de connexion à votre panneau ne fonctionneront **pas** ici.
+
+Aucune configuration supplémentaire n'est nécessaire — si le champ nom d'utilisateur contient un UUID, le module utilise l'API REST moderne, sinon le SOAP classique.
 
 ## Mise à jour
 

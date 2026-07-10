@@ -12,6 +12,12 @@
 
 Bu modül, FOSSBilling için geliştirilmiş resmi DomainNameApi entegrasyonudur. Alan adı kaydı, transferi, yenileme ve yönetim işlemlerini FOSSBilling panelinizden kolayca yapabilirsiniz.
 
+## 📦 İndirme — her zaman Releases kullanın!
+
+⬇️ **En güncel test edilmiş sürümü buradan indirin: https://github.com/domainreseller/fossbilling-dna/releases/latest**
+
+> ⚠️ Yeşil **Code → Download ZIP** butonunu **kullanmayın** — bu buton, ham geliştirme dalını indirir. Release paketleri sürümlendirilmiş, test edilmiş ve canlı kullanıma hazırdır.
+
 ## Gereksinimler
 
 - FOSSBilling 1.0 veya üzeri
@@ -25,6 +31,20 @@ Bu modül, FOSSBilling için geliştirilmiş resmi DomainNameApi entegrasyonudur
 3. Ayarlar > Alan Adı Kayıt Modülleri bölümünden "DomainNameApi" modülünü etkinleştirin.
 4. DomainNameApi API kullanıcı adı ve şifrenizi girin.
 5. Kaydedin ve modülü kullanmaya başlayın.
+
+## 🔑 API Bilgileri — Kullanıcı Adı/Şifre mi, Reseller ID/API Key mi?
+
+Her ikisi de desteklenir — bilgileri modüldeki aynı iki alana girin; modül hangi API'nin kullanılacağını otomatik olarak algılar:
+
+| Elinizdeki bilgi | "Kullanıcı adı" alanı | "Şifre" alanı | Kullanılan API |
+|---|---|---|---|
+| **Yeni panel bilgileri** (önerilen) | Reseller ID — `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` biçiminde UUID | API Key | REST |
+| **Eski (legacy) bilgiler** | API kullanıcı adı | API şifresi | SOAP |
+
+> 💡 **Reseller ID** ve **API Key** bilgilerinizi DomainNameAPI panelinizde **API Ayarları** bölümünde bulabilirsiniz.
+> ⚠️ Bunlar **API bilgileridir** — panele giriş yaptığınız e-posta/şifre burada **ÇALIŞMAZ**. API Ayarları bölümündeki Reseller ID (UUID) ve API Key kullanılmalıdır.
+
+Ek bir yapılandırma gerekmez — kullanıcı adı alanına UUID girilirse modül modern REST API'yi, aksi halde klasik SOAP'ı kullanır.
 
 ## Güncelleme
 
