@@ -22,29 +22,21 @@ Deze module is de officiële DomainNameApi-integratie voor FOSSBilling. Registre
 
 - FOSSBilling 1.0 of hoger
 - PHP 8.0 of hoger
-- PHP SOAP-extensie geactiveerd
 
 ## Installatie
 
 1. Upload deze modulemap naar `library/Registrar/Adapter/` in je FOSSBilling-installatie.
 2. Log in op het FOSSBilling-beheerpanel.
 3. Ga naar Instellingen > Domeinregistrar-modules en activeer "DomainNameApi".
-4. Vul je DomainNameApi API-gebruikersnaam en wachtwoord in.
+4. Vul je DomainNameApi Reseller ID en API Key in.
 5. Sla op en begin met het gebruik van de module.
 
-## 🔑 API-gegevens — Gebruikersnaam/Wachtwoord of Reseller ID/API Key?
+## 🔑 API-gegevens
 
-Beide worden ondersteund — vul ze in dezelfde twee modulevelden in; de module detecteert automatisch welke API wordt gebruikt:
-
-| Je hebt | Veld "Gebruikersnaam" | Veld "Wachtwoord" | Gebruikte API |
-|---|---|---|---|
-| **Nieuwe panelgegevens** (aanbevolen) | Reseller ID — UUID zoals `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` | API Key | REST |
-| **Oude (legacy) gegevens** | API-gebruikersnaam | API-wachtwoord | SOAP |
+Vul je **Reseller ID** in het veld "Reseller ID" en je **API Key** in het veld "API Key" in.
 
 > 💡 Je vindt je **Reseller ID** en **API Key** in je DomainNameAPI-panel onder **API-instellingen**.
-> ⚠️ Dit zijn **API-gegevens** — het e-mailadres en wachtwoord waarmee je op het panel inlogt, werken hier **niet**.
-
-Er is geen extra configuratie nodig — bevat het gebruikersnaamveld een UUID, dan gebruikt de module de moderne REST API, anders klassiek SOAP.
+> ⚠️ Dit zijn **API-gegevens** — je inloggegevens voor het panel werken hier **niet**.
 
 ## Update
 
@@ -70,7 +62,7 @@ Er is geen extra configuratie nodig — bevat het gebruikersnaamveld een UUID, d
 | 1001  | Opdracht succesvol; actie in behandeling        | Actie succesvol, maar staat in de wachtrij                                             |
 | 2003  | Vereiste parameter ontbreekt                    | Bijvoorbeeld: Telefoonnummer ontbreekt in contactgegevens                              |
 | 2105  | Object komt niet in aanmerking voor verlenging  | Domein is vergrendeld voor update, status mag niet "clientupdateprohibited" zijn       |
-| 2200  | Authenticatiefout                               | API-gebruikersnaam/wachtwoord onjuist of domein bij andere registrar                   |
+| 2200  | Authenticatiefout                               | Reseller ID/API Key onjuist of domein bij andere registrar                             |
 | 2302  | Object bestaat                                  | Domein of nameserver bestaat al in de database                                         |
 | 2303  | Object bestaat niet                             | Domein of nameserver niet gevonden, nieuwe registratie vereist                         |
 | 2304  | Objectstatus verbiedt actie                     | Domein is vergrendeld voor update, status mag niet "clientupdateprohibited" zijn       |

@@ -29,22 +29,18 @@ class Registrar_Adapter_DomainNameApi extends Registrar_AdapterAbstract
 
     public function __construct($options)
     {
-        if (!class_exists('SoapClient')) {
-            throw new Registrar_Exception('SOAP functions are not available<br>Please install "php-soap" and check PHP pre-requisites');
-        }
-
         if (isset($options['Username']) && !empty($options['Username'])) {
             $this->config['Username'] = $options['Username'];
             unset($options['Username']);
         } else {
-            throw new Registrar_Exception('DomainNameApi Registrar module error.<br>Please update configuration parameter "Username" at "Configuration -> Domain registration"');
+            throw new Registrar_Exception('DomainNameApi Registrar module error.<br>Please update configuration parameter "Reseller ID" at "Configuration -> Domain registration"');
         }
 
         if (isset($options['Password']) && !empty($options['Password'])) {
             $this->config['Password'] = $options['Password'];
             unset($options['Password']);
         } else {
-            throw new Registrar_Exception('DomainNameApi Registrar module error.<br>Please update configuration parameter "Password" at "Configuration -> Domain registration"');
+            throw new Registrar_Exception('DomainNameApi Registrar module error.<br>Please update configuration parameter "API Key" at "Configuration -> Domain registration"');
         }
         if(isset($options['TestMode']) && !empty($options['TestMode'])) {
             $this->config['TestMode'] = $options['TestMode'];
@@ -72,13 +68,13 @@ class Registrar_Adapter_DomainNameApi extends Registrar_AdapterAbstract
             Please note that production and testing platforms are different. If you want to use the test mode, you will need an additional test account for the Operational Testing Environment. Your production account will not work on that environment.',
             'form'  => array(
                 'Username' => array('text', array(
-                            'label' => 'Username',
+                            'label' => 'Reseller ID',
                             'description'=> '',
                             'required' => true,
                         ),
                      ),
                 'Password' => array('password', array(
-                            'label' => 'Password',
+                            'label' => 'API Key',
                             'description'=> '',
                             'required' => true,
                         ),
@@ -611,12 +607,12 @@ class Registrar_Adapter_DomainNameApi extends Registrar_AdapterAbstract
      */
     private function getDna()
     {
-        $username = $this->config["Username"];
-        $password = $this->config["Password"];
+        $resellerId = $this->config["Username"];
+        $apiKey     = $this->config["Password"];
         $testmode = $this->_testMode ?? false;
 
         try {
-            $api = new DomainNameAPI_PHPLibrary($username, $password, $testmode);
+            $api = new DomainNameAPI_PHPLibrary($resellerId, $apiKey, $testmode);
         }
         catch(Exception $exception) {
             throw new Registrar_Exception($exception->getMessage());

@@ -22,29 +22,21 @@ Ce module est l'intégration officielle de DomainNameApi pour FOSSBilling. Gére
 
 - FOSSBilling 1.0 ou supérieur
 - PHP 8.0 ou supérieur
-- Extension PHP SOAP activée
 
 ## Installation
 
 1. Téléchargez ce dossier de module dans `library/Registrar/Adapter/` de votre installation FOSSBilling.
 2. Connectez-vous au panneau d'administration FOSSBilling.
 3. Allez dans Paramètres > Modules d'enregistrement de domaine et activez "DomainNameApi".
-4. Saisissez votre nom d'utilisateur et mot de passe API DomainNameApi.
+4. Saisissez votre Reseller ID et votre API Key DomainNameApi.
 5. Enregistrez et commencez à utiliser le module.
 
-## 🔑 Identifiants API — Nom d'utilisateur/Mot de passe ou Reseller ID/API Key ?
+## 🔑 Identifiants API
 
-Les deux sont pris en charge — saisissez-les dans les deux mêmes champs du module ; le module détecte automatiquement quelle API utiliser :
-
-| Vous disposez de | Champ « Nom d'utilisateur » | Champ « Mot de passe » | API utilisée |
-|---|---|---|---|
-| **Nouveaux identifiants du panneau** (recommandé) | Reseller ID — UUID de type `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` | API Key | REST |
-| **Identifiants hérités (legacy)** | Nom d'utilisateur API | Mot de passe API | SOAP |
+Saisissez votre **Reseller ID** dans le champ « Reseller ID » et votre **API Key** dans le champ « API Key ».
 
 > 💡 Vous trouverez votre **Reseller ID** et votre **API Key** dans votre panneau DomainNameAPI, section **Paramètres API**.
-> ⚠️ Il s'agit d'**identifiants API** — l'e-mail et le mot de passe de connexion à votre panneau ne fonctionneront **pas** ici.
-
-Aucune configuration supplémentaire n'est nécessaire — si le champ nom d'utilisateur contient un UUID, le module utilise l'API REST moderne, sinon le SOAP classique.
+> ⚠️ Il s'agit d'**identifiants API** — vos identifiants de connexion au panneau ne fonctionneront **pas** ici.
 
 ## Mise à jour
 
@@ -70,7 +62,7 @@ Aucune configuration supplémentaire n'est nécessaire — si le champ nom d'uti
 | 1001  | Commande exécutée avec succès ; action en attente | Opération réussie, mais action en file d'attente                                      |
 | 2003  | Paramètre requis manquant                      | Par exemple : Numéro de téléphone manquant dans les informations de contact             |
 | 2105  | L'objet n'est pas éligible au renouvellement   | Domaine verrouillé pour mise à jour, statut ne doit pas être "clientupdateprohibited"  |
-| 2200  | Erreur d'authentification                      | Nom d'utilisateur/mot de passe API incorrect ou domaine chez un autre registrar         |
+| 2200  | Erreur d'authentification                      | Reseller ID/API Key incorrect ou domaine chez un autre registrar                        |
 | 2302  | L'objet existe                                 | Domaine ou serveur de noms déjà existant dans la base de données                       |
 | 2303  | L'objet n'existe pas                           | Domaine ou serveur de noms introuvable, nouvel enregistrement requis                    |
 | 2304  | Le statut de l'objet interdit l'opération      | Domaine verrouillé pour mise à jour, statut ne doit pas être "clientupdateprohibited"  |

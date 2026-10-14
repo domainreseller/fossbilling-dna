@@ -22,29 +22,21 @@ Bu modül, FOSSBilling için geliştirilmiş resmi DomainNameApi entegrasyonudur
 
 - FOSSBilling 1.0 veya üzeri
 - PHP 8.0 veya üzeri
-- PHP SOAP eklentisi etkin olmalı
 
 ## Kurulum
 
 1. `library/Registrar/Adapter/` dizinine bu modül klasörünü yükleyin.
 2. FOSSBilling yönetim paneline giriş yapın.
 3. Ayarlar > Alan Adı Kayıt Modülleri bölümünden "DomainNameApi" modülünü etkinleştirin.
-4. DomainNameApi API kullanıcı adı ve şifrenizi girin.
+4. DomainNameApi Reseller ID ve API Key bilgilerinizi girin.
 5. Kaydedin ve modülü kullanmaya başlayın.
 
-## 🔑 API Bilgileri — Kullanıcı Adı/Şifre mi, Reseller ID/API Key mi?
+## 🔑 API Bilgileri
 
-Her ikisi de desteklenir — bilgileri modüldeki aynı iki alana girin; modül hangi API'nin kullanılacağını otomatik olarak algılar:
-
-| Elinizdeki bilgi | "Kullanıcı adı" alanı | "Şifre" alanı | Kullanılan API |
-|---|---|---|---|
-| **Yeni panel bilgileri** (önerilen) | Reseller ID — `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` biçiminde UUID | API Key | REST |
-| **Eski (legacy) bilgiler** | API kullanıcı adı | API şifresi | SOAP |
+**Reseller ID** bilginizi "Reseller ID" alanına, **API Key** bilginizi "API Key" alanına girin.
 
 > 💡 **Reseller ID** ve **API Key** bilgilerinizi DomainNameAPI panelinizde **API Ayarları** bölümünde bulabilirsiniz.
-> ⚠️ Bunlar **API bilgileridir** — panele giriş yaptığınız e-posta/şifre burada **ÇALIŞMAZ**. API Ayarları bölümündeki Reseller ID (UUID) ve API Key kullanılmalıdır.
-
-Ek bir yapılandırma gerekmez — kullanıcı adı alanına UUID girilirse modül modern REST API'yi, aksi halde klasik SOAP'ı kullanır.
+> ⚠️ Bunlar **API bilgileridir** — panele giriş bilgileriniz burada **ÇALIŞMAZ**. API Ayarları bölümündeki Reseller ID ve API Key kullanılmalıdır.
 
 ## Güncelleme
 
@@ -70,7 +62,7 @@ Ek bir yapılandırma gerekmez — kullanıcı adı alanına UUID girilirse mod�
 | 1001 | İşlem başarılı; işlem beklemede                 | Komut başarılı, ancak işlem kuyruğa alındı                                              |
 | 2003 | Gerekli parametre eksik                        | Örneğin: İletişim bilgisinde telefon numarası eksik                                    |
 | 2105 | Domain yenilemeye uygun değil                   | Domain güncellemeye kapalı, "clientupdateprohibited" olmamalı                          |
-| 2200 | Kimlik doğrulama hatası                         | API kullanıcı adı/şifre hatalı veya domain başka bir kayıt operatöründe                |
+| 2200 | Kimlik doğrulama hatası                         | Reseller ID/API Key hatalı veya domain başka bir kayıt operatöründe                    |
 | 2302 | Kayıt zaten mevcut                              | Domain veya nameserver zaten kayıtlı                                                   |
 | 2303 | Kayıt bulunamadı                                | Domain veya nameserver bulunamadı, yeni kayıt gerekli                                  |
 | 2304 | Domain durumu işleme izin vermiyor              | Domain güncellemeye kapalı, "clientupdateprohibited" olmamalı                          |

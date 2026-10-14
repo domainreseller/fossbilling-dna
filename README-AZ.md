@@ -22,29 +22,21 @@ Bu modul, FOSSBilling üçün rəsmi DomainNameApi inteqrasiyasıdır. Paneldən
 
 - FOSSBilling 1.0 və ya yuxarı
 - PHP 8.0 və ya yuxarı
-- PHP SOAP əlavəsi aktiv olmalıdır
 
 ## Quraşdırma
 
 1. Modul qovluğunu `library/Registrar/Adapter/` içərisinə yerləşdirin.
 2. FOSSBilling admin panelinə daxil olun.
 3. Ayarlar > Domain Qeydiyyat Modulları bölməsindən "DomainNameApi" modulunu aktiv edin.
-4. DomainNameApi API istifadəçi adı və şifrənizi daxil edin.
+4. DomainNameApi Reseller ID və API Key məlumatlarınızı daxil edin.
 5. Yadda saxlayın və istifadə etməyə başlayın.
 
-## 🔑 API Məlumatları — İstifadəçi adı/Şifrə, yoxsa Reseller ID/API Key?
+## 🔑 API Məlumatları
 
-Hər ikisi dəstəklənir — məlumatları modulun eyni iki sahəsinə daxil edin; modul hansı API-nin istifadə olunacağını avtomatik müəyyən edir:
-
-| Sizdə olan | "İstifadəçi adı" sahəsi | "Şifrə" sahəsi | İstifadə olunan API |
-|---|---|---|---|
-| **Yeni panel məlumatları** (tövsiyə olunur) | Reseller ID — `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` formatında UUID | API Key | REST |
-| **Köhnə (legacy) məlumatlar** | API istifadəçi adı | API şifrəsi | SOAP |
+**Reseller ID** məlumatınızı "Reseller ID" sahəsinə, **API Key** məlumatınızı isə "API Key" sahəsinə daxil edin.
 
 > 💡 **Reseller ID** və **API Key** məlumatlarınızı DomainNameAPI panelinizdə **API Ayarları (API Settings)** bölməsində tapa bilərsiniz.
-> ⚠️ Bunlar **API məlumatlarıdır** — panelə giriş üçün istifadə etdiyiniz e-poçt və şifrə burada **işləməyəcək**.
-
-Əlavə konfiqurasiya tələb olunmur — istifadəçi adı sahəsində UUID varsa, modul müasir REST API-dən, əks halda klassik SOAP-dan istifadə edir.
+> ⚠️ Bunlar **API məlumatlarıdır** — panelə giriş məlumatlarınız burada **işləməyəcək**.
 
 ## Yenilənmə
 
@@ -70,7 +62,7 @@ Hər ikisi dəstəklənir — məlumatları modulun eyni iki sahəsinə daxil ed
 | 1001 | Əməliyyat uğurla tamamlandı; əməliyyat gözləyir  | Komanda uğurla icra olundu, lakin əməliyyat növbəyə alınıb                               |
 | 2003 | Tələb olunan parametr yoxdur                     | Məsələn: Əlaqə məlumatlarında telefon nömrəsi yoxdur                                     |
 | 2105 | Domen yenilənməyə uyğun deyil                    | Domen yeniləməyə bağlıdır, status "clientupdateprohibited" olmamalıdır                  |
-| 2200 | Doğrulama xətası                                 | API istifadəçi adı/şifrəsi səhvdir və ya domen başqa qeydiyyat şirkətindədir             |
+| 2200 | Doğrulama xətası                                 | Reseller ID/API Key səhvdir və ya domen başqa qeydiyyat şirkətindədir                    |
 | 2302 | Qeyd artıq mövcuddur                             | Domen və ya nameserver artıq bazada mövcuddur                                            |
 | 2303 | Qeyd tapılmadı                                   | Domen və ya nameserver tapılmadı, yeni qeydiyyat lazımdır                                |
 | 2304 | Domen statusu əməliyyata icazə vermir            | Domen yeniləməyə bağlıdır, status "clientupdateprohibited" olmamalıdır                  |

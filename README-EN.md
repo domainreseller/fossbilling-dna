@@ -22,29 +22,21 @@ This is the official DomainNameApi integration module for FOSSBilling. Easily re
 
 - FOSSBilling 1.0 or higher
 - PHP 8.0 or higher
-- PHP SOAP extension enabled
 
 ## Installation
 
 1. Upload this module folder to `library/Registrar/Adapter/` in your FOSSBilling installation.
 2. Log in to your FOSSBilling admin panel.
 3. Go to Settings > Domain Registrar Modules and activate "DomainNameApi".
-4. Enter your DomainNameApi API username and password.
+4. Enter your DomainNameApi Reseller ID and API Key.
 5. Save and start using the module.
 
-## 🔑 API Credentials — Username/Password or Reseller ID/API Key?
+## 🔑 API Credentials
 
-Both are supported — enter them into the same two module fields; the module detects which API to use automatically:
-
-| You have | "Username" field | "Password" field | API used |
-|---|---|---|---|
-| **New panel credentials** (recommended) | Reseller ID — UUID like `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` | API Key | REST |
-| **Legacy credentials** | API username | API password | SOAP |
+Enter your **Reseller ID** into the "Reseller ID" field and your **API Key** into the "API Key" field.
 
 > 💡 Find your **Reseller ID** and **API Key** in your DomainNameAPI panel under **API Settings**.
-> ⚠️ These are **API credentials** — your panel login e-mail and password will **not** work here.
-
-No extra configuration is needed — if the username field contains a UUID the module uses the modern REST API, otherwise classic SOAP.
+> ⚠️ These are **API credentials** — your panel login details will **not** work here.
 
 ## Update
 
@@ -70,7 +62,7 @@ No extra configuration is needed — if the username field contains a UUID the m
 | 1001  | Command completed successfully; action pending| Operation successful, but action is queued                                             |
 | 2003  | Required parameter missing                    | For example: Missing phone number in contact information                               |
 | 2105  | Object is not eligible for renewal            | Domain is locked for update, status must not be "clientupdateprohibited"              |
-| 2200  | Authentication error                         | API username/password incorrect or domain is with another registrar                    |
+| 2200  | Authentication error                         | Reseller ID/API Key incorrect or domain is with another registrar                      |
 | 2302  | Object exists                                 | Domain or nameserver already exists in the database                                    |
 | 2303  | Object does not exist                         | Domain or nameserver not found, new registration required                              |
 | 2304  | Object status prohibits operation             | Domain is locked for update, status must not be "clientupdateprohibited"              |

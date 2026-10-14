@@ -22,29 +22,21 @@ Dieses Modul ist die offizielle DomainNameApi-Integration für FOSSBilling. Sie 
 
 - FOSSBilling 1.0 oder höher
 - PHP 8.0 oder höher
-- PHP SOAP-Erweiterung aktiviert
 
 ## Installation
 
 1. Laden Sie diesen Modulordner in das Verzeichnis `library/Registrar/Adapter/` Ihrer FOSSBilling-Installation hoch.
 2. Melden Sie sich im FOSSBilling-Adminpanel an.
 3. Gehen Sie zu Einstellungen > Domain-Registrar-Module und aktivieren Sie "DomainNameApi".
-4. Tragen Sie Ihren DomainNameApi-Benutzernamen und Ihr Passwort ein.
+4. Tragen Sie Ihre DomainNameApi Reseller ID und Ihren API Key ein.
 5. Speichern und nutzen Sie das Modul.
 
-## 🔑 API-Zugangsdaten — Benutzername/Passwort oder Reseller ID/API Key?
+## 🔑 API-Zugangsdaten
 
-Beides wird unterstützt — tragen Sie die Daten in dieselben zwei Modulfelder ein; das Modul erkennt automatisch, welche API verwendet wird:
-
-| Sie haben | Feld „Benutzername" | Feld „Passwort" | Verwendete API |
-|---|---|---|---|
-| **Neue Panel-Zugangsdaten** (empfohlen) | Reseller ID — UUID wie `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` | API Key | REST |
-| **Alte (Legacy-)Zugangsdaten** | API-Benutzername | API-Passwort | SOAP |
+Tragen Sie Ihre **Reseller ID** in das Feld „Reseller ID" und Ihren **API Key** in das Feld „API Key" ein.
 
 > 💡 Ihre **Reseller ID** und Ihren **API Key** finden Sie in Ihrem DomainNameAPI-Panel unter **API-Einstellungen**.
-> ⚠️ Dies sind **API-Zugangsdaten** — Ihre Panel-Login-E-Mail und Ihr Passwort funktionieren hier **nicht**.
-
-Es ist keine zusätzliche Konfiguration nötig — enthält das Benutzernamen-Feld eine UUID, verwendet das Modul die moderne REST-API, andernfalls klassisches SOAP.
+> ⚠️ Dies sind **API-Zugangsdaten** — Ihre Panel-Anmeldedaten funktionieren hier **nicht**.
 
 ## Update
 
@@ -70,7 +62,7 @@ Es ist keine zusätzliche Konfiguration nötig — enthält das Benutzernamen-Fe
 | 1001  | Befehl erfolgreich; Aktion ausstehend          | Vorgang erfolgreich, aber Aktion ist in der Warteschlange                              |
 | 2003  | Erforderlicher Parameter fehlt                 | Z.B.: Telefonnummer in den Kontaktdaten fehlt                                          |
 | 2105  | Objekt ist nicht zur Verlängerung berechtigt   | Domain ist für Updates gesperrt, Status darf nicht "clientupdateprohibited" sein       |
-| 2200  | Authentifizierungsfehler                       | API-Benutzername/Passwort falsch oder Domain bei anderem Registrar                     |
+| 2200  | Authentifizierungsfehler                       | Reseller ID/API Key falsch oder Domain bei anderem Registrar                           |
 | 2302  | Objekt existiert                               | Domain oder Nameserver existiert bereits in der Datenbank                              |
 | 2303  | Objekt nicht gefunden                          | Domain oder Nameserver nicht gefunden, neue Registrierung erforderlich                 |
 | 2304  | Objektstatus verbietet Aktion                  | Domain ist für Updates gesperrt, Status darf nicht "clientupdateprohibited" sein       |
