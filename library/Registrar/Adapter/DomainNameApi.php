@@ -613,6 +613,7 @@ class Registrar_Adapter_DomainNameApi extends Registrar_AdapterAbstract
 
         try {
             $api = new DomainNameAPI_PHPLibrary($resellerId, $apiKey, $testmode);
+            if (method_exists($api, 'setClientInfo')) { $api->setClientInfo('fossbilling', self::MODULE_VERSION); }
         }
         catch(Exception $exception) {
             throw new Registrar_Exception($exception->getMessage());
